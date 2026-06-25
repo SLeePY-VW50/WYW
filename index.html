@@ -116,15 +116,31 @@
 
     <div class="page-content" id="page-games">
       <div class="section-title">🎮 小游戏</div>
-      <div class="games-page">
-        <div class="game-container">
-          <h2>🐍 贪吃蛇</h2>
-          <div class="game-canvas-wrap"><canvas id="snake-canvas" width="300" height="300"></canvas></div>
-          <div class="game-score">
-            <span id="snake-score">得分: 0</span>
-            <span id="snake-high">最高: 0</span>
-          </div>
-          <div class="game-controls">
+      <div class="game-tabs">
+        <button class="game-tab active" data-game="snake">🐍 贪吃蛇</button>
+        <button class="game-tab" data-game="tetris">🧱 俄罗斯方块</button>
+      </div>
+      <div class="game-panel" id="game-panel-snake">
+        <canvas id="snake-canvas" width="300" height="300"></canvas>
+        <div class="game-score">
+          <span id="snake-score">得分: 0</span>
+          <span id="snake-high">最高: 0</span>
+        </div>
+        <div class="game-controls">
+          <button class="game-btn" id="snake-start">开始游戏</button>
+        </div>
+      </div>
+      <div class="game-panel" id="game-panel-tetris" style="display:none">
+        <canvas id="tetris-canvas" width="300" height="300"></canvas>
+        <div class="game-score">
+          <span id="tetris-score">得分: 0</span>
+          <span id="tetris-high">最高: 0</span>
+        </div>
+        <div class="game-controls">
+          <button class="game-btn" id="tetris-start">开始游戏</button>
+        </div>
+      </div>
+    </div>          <div class="game-controls">
             <button class="game-btn" id="snake-start">开始游戏</button>
           </div>
         </div>
