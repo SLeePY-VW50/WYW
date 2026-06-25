@@ -1,5 +1,23 @@
 ﻿/* ===== Tetris Game ===== */
 var TETRIS = {};
+// roundRect polyfill
+if (!CanvasRenderingContext2D.prototype.roundRect) {
+  CanvasRenderingContext2D.prototype.roundRect = function(x, y, w, h, r) {
+    if (typeof r === "number") r = { tl: r, tr: r, br: r, bl: r };
+    this.beginPath();
+    this.moveTo(x + r.tl, y);
+    this.lineTo(x + w - r.tr, y);
+    this.quadraticCurveTo(x + w, y, x + w, y + r.tr);
+    this.lineTo(x + w, y + h - r.br);
+    this.quadraticCurveTo(x + w, y + h, x + w - r.br, y + h);
+    this.lineTo(x + r.bl, y + h);
+    this.quadraticCurveTo(x, y + h, x, y + h - r.bl);
+    this.lineTo(x, y + r.tl);
+    this.quadraticCurveTo(x, y, x + r.tl, y);
+    this.closePath();
+  };
+}
+
 
 TETRIS.Game = class {
   constructor(canvasId) {
@@ -84,7 +102,7 @@ TETRIS.Game = class {
   }
 
   setupControls() {
-    document.addEventListener("keydown", (e) => {
+    document.addEventListener("keydown", (e) => { const gamesPage = document.getElementById("page-games"); if (!gamesPage || !gamesPage.classList.contains("active")) return;
       if (!this.running || this.gameOver) return;
       const key = e.key;
       e.preventDefault();
@@ -300,7 +318,7 @@ TETRIS.Game = class {
   updateScore() {
     const scoreEl = document.getElementById("tetris-score");
     const highEl = document.getElementById("tetris-high");
-    if (scoreEl) scoreEl.textContent = this.score;
-    if (highEl) highEl.textContent = this.highScore;
+    if (scoreEl) scoreEl.textContent = "得分: " + this.score;
+    if (highEl) highEl.textContent = "最高: " + this.highScore;
   }
 };
