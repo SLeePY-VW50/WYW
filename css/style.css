@@ -28,17 +28,12 @@
 }
 
 /* ===== Global ===== */
-html, body {
-  height: 100%;
-}
 body {
   font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   padding-top: 64px;
+  min-height: 100vh;
 }
 
 /* ===== Scrollbar ===== */
@@ -125,7 +120,6 @@ body {
   text-align: center;
   background: linear-gradient(135deg, #FFF8F0 0%, #FFE8D6 50%, #FFD6C2 100%);
   position: relative;
-  overflow: hidden;
 }
 
 .hero::before {
@@ -191,7 +185,6 @@ body {
 
 /* ===== Main Container ===== */
 .container {
-  flex: 1;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -675,7 +668,6 @@ body {
 
 /* ===== Footer ===== */
 .footer {
-  flex-shrink: 0;
   background: var(--bg-nav);
   color: var(--text-white);
   text-align: center;
