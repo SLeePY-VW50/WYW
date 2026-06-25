@@ -28,10 +28,15 @@
 }
 
 /* ===== Global ===== */
+html, body {
+  height: 100%;
+}
 body {
   font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
@@ -186,9 +191,11 @@ body {
 
 /* ===== Main Container ===== */
 .container {
+  flex: 1;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: 24px 24px 32px;
 }
 
 /* ===== Section Titles ===== */
@@ -668,6 +675,7 @@ body {
 
 /* ===== Footer ===== */
 .footer {
+  flex-shrink: 0;
   background: var(--bg-nav);
   color: var(--text-white);
   text-align: center;
@@ -842,6 +850,11 @@ body {
 }
 
 /* ===== Games Page ===== */
+#page-games.active {
+  display: flex !important;
+  flex-direction: column;
+  height: 100%;
+}
 .game-tabs {
   display: flex;
   justify-content: center;
@@ -870,10 +883,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
 }
 .game-panel canvas {
   border-radius: var(--radius-sm);
   background: #1a1a2e;
+  max-width: 100%;
+  max-height: calc(100vh - 200px);
+  object-fit: contain;
 }
 .game-score {
   text-align: center;
