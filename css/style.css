@@ -845,40 +845,47 @@ body {
 .games-page {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
+  gap: 24px;
+  align-items: start;
 }
 
 .game-container {
   background: var(--bg-card);
   border-radius: var(--radius);
-  padding: 24px;
+  padding: 20px;
   box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .game-container h2 {
   font-family: var(--font-display);
-  font-size: 1.3rem;
-  margin-bottom: 16px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
   text-align: center;
 }
 
 .game-canvas-wrap {
   display: flex;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .game-canvas-wrap canvas {
   border-radius: var(--radius-sm);
   background: #1a1a2e;
   max-width: 100%;
+  max-height: 50vh;
+  height: auto;
+  width: auto;
 }
 
 .game-controls {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 12px;
+  gap: 10px;
+  margin-top: 8px;
   flex-wrap: wrap;
 }
 
@@ -896,10 +903,15 @@ body {
 .game-btn.secondary { background: var(--secondary); }
 .game-btn.secondary:hover { box-shadow: 0 4px 12px rgba(0,78,152,0.3); }
 
+/* Compact hero when on games or blog pages */
+.page-content.active ~ .hero,
+#page-games.active ~ .hero,
+#page-blog.active ~ .hero { display: none; }
+
 .game-score {
   text-align: center;
-  font-size: 1rem;
-  margin-top: 8px;
+  font-size: 0.95rem;
+  margin-top: 4px;
 }
 
 .game-score span { font-weight: bold; color: var(--primary); }
