@@ -21,7 +21,7 @@
     <div class="nav-links">
       <a href="#" class="nav-link active" data-page="home">🏠 首页</a>
       <a href="#" class="nav-link" data-page="blog">📝 博客</a>
-      <a href="#" class="nav-link" data-page="games">🎃 游戏</a>
+      <a href="#" class="nav-link" data-page="games">🎮 游戏</a>
       <a href="#" class="nav-link" data-page="about">ℹ️ 关于</a>
     </div>
     <div class="nav-toggle"><span></span><span></span><span></span></div>
@@ -34,6 +34,7 @@
   </section>
 
   <main class="container">
+
     <div class="page-content active" id="page-home">
       <div class="two-col">
         <div class="card">
@@ -44,7 +45,7 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-title">🎃 来玩会儿！</div>
+          <div class="card-title">🎮 来玩会儿！</div>
           <div class="game-grid">
             <div class="game-preview" onclick="NAV.showPage('games')">
               <div class="game-icon">🐍</div>
@@ -115,7 +116,6 @@
     </div>
 
     <div class="page-content" id="page-games">
-      <div class="section-title">🎮 小游戏</div>
       <div class="game-tabs">
         <button class="game-tab active" data-game="snake">🐍 贪吃蛇</button>
         <button class="game-tab" data-game="tetris">🧱 俄罗斯方块</button>
@@ -140,22 +140,6 @@
           <button class="game-btn" id="tetris-start">开始游戏</button>
         </div>
       </div>
-    </div>          <div class="game-controls">
-            <button class="game-btn" id="snake-start">开始游戏</button>
-          </div>
-        </div>
-        <div class="game-container">
-          <h2>🧱 俄罗斯方块</h2>
-          <div class="game-canvas-wrap"><canvas id="tetris-canvas" width="300" height="300"></canvas></div>
-          <div class="game-score">
-            <span id="tetris-score">得分: 0</span>
-            <span id="tetris-high">最高: 0</span>
-          </div>
-          <div class="game-controls">
-            <button class="game-btn" id="tetris-start">开始游戏</button>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="page-content" id="page-about">
@@ -175,6 +159,7 @@
         </div>
       </div>
     </div>
+
   </main>
 
   <footer class="footer">
