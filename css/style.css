@@ -1024,3 +1024,10 @@ body {
 
 
 
+
+/* Offset for fixed nav when hero is hidden */
+#page-games.active,
+#page-blog.active,
+#page-about.active {
+  padding-top: 80px;
+}
