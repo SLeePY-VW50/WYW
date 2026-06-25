@@ -1,0 +1,16 @@
+# Build scripts & tools
+*.cjs
+mus_part1.js
+mus_part2.js
+playlists-data.txt
+stripped.js
+
+# Dev stuff
+.superpowers/
+docs/
+articles/
+pages/
+
+# OS files
+Thumbs.db
+Desktop.ini

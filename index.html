@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="我的小宇宙 — 个人博客，包含技术文章、小游戏和音乐分享">
+  <meta property="og:title" content="我的小宇宙">
+  <meta property="og:description" content="一个充满趣味的小站，有博客、游戏和音乐">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>🚀 我的小宇宙</title>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-brand">🚀 我的<span>小宇宙</span></div>
+    <div class="nav-links">
+      <a href="#" class="nav-link active" data-page="home">🏠 首页</a>
+      <a href="#" class="nav-link" data-page="blog">📝 博客</a>
+      <a href="#" class="nav-link" data-page="games">🎃 游戏</a>
+      <a href="#" class="nav-link" data-page="about">ℹ️ 关于</a>
+    </div>
+    <div class="nav-toggle"><span></span><span></span><span></span></div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-avatar">👻</div>
+    <h1>欢迎来到我的小宇宙 🚀</h1>
+    <p>一个爱 coding、爱音乐、爱折腾的普通开发者 · 这里有代码、有游戏、有生活</p>
+  </section>
+
+  <main class="container">
+    <div class="page-content active" id="page-home">
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">📝 最新文章</div>
+          <div class="article-list"></div>
+          <div style="text-align:center;margin-top:12px;">
+            <a href="#" class="question-btn" onclick="NAV.showPage('blog')">查看更多 →</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">🎃 来玩会儿！</div>
+          <div class="game-grid">
+            <div class="game-preview" onclick="NAV.showPage('games')">
+              <div class="game-icon">🐍</div>
+              <h4>贪吃蛇</h4>
+              <p>经典玩法，渐变色小蛇</p>
+            </div>
+            <div class="game-preview" onclick="NAV.showPage('games')">
+              <div class="game-icon">🧱</div>
+              <h4>俄罗斯方块</h4>
+              <p>经典益智，停不下来</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="music-section">
+        <div class="section-title">🎵 音乐小站</div>
+        <div class="music-player">
+          <div class="music-cover">
+            <img id="music-cover-img" src="" alt="专辑封面" onerror="this.style.display='none'">
+            <div class="music-cover-fallback">🎵</div>
+          </div>
+          <div class="music-main">
+            <div class="music-now">
+              <span class="music-status" id="music-status">⏸ 暂停中</span>
+              <h3 id="music-title">点击右侧歌单播放</h3>
+              <p id="music-artist">-</p>
+            </div>
+            <div class="music-controls">
+              <button class="music-mode-btn" id="btn-mode" title="顺序播放">🔁</button>
+              <button class="music-ctrl-btn" id="btn-prev" title="上一首">⏮</button>
+              <button class="music-ctrl-btn" id="btn-play" title="播放/暂停">▶</button>
+              <button class="music-ctrl-btn" id="btn-next" title="下一首">⏭</button>
+              <input type="range" class="music-progress-bar" id="music-progress-bar" min="0" max="100" value="0">
+              <span class="music-progress" id="music-progress">0:00 / 0:00</span>
+            </div>
+          </div>
+          <div class="music-list">
+            <h4>🎶 我的歌单</h4>
+            <div class="playlist-tabs" id="playlist-tabs"></div>
+            <div class="music-songlist" id="music-songlist"></div>
+          </div>
+          <audio id="music-audio" preload="none"></audio>
+        </div>
+      </section>
+
+      <div class="widgets-row">
+        <div class="widget">
+          <div class="widget-title">🍀 每日幸运值</div>
+          <div class="luck-display">
+            <div class="luck-ring" style="background:conic-gradient(#FFD166 50%, #f0f0f0 50%)">
+              <div class="luck-value">50</div>
+            </div>
+            <p class="luck-text">点击获取今日幸运值</p>
+          </div>
+        </div>
+        <div class="widget">
+          <div class="widget-title">💡 每日一问</div>
+          <div class="question-text">💡 点击下方按钮获取问题</div>
+          <button class="question-btn">换一个</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content" id="page-blog">
+      <div class="section-title">📝 博客文章</div>
+      <div id="blog-list-container" class="blog-list"></div>
+    </div>
+
+    <div class="page-content" id="page-games">
+      <div class="section-title">🎮 小游戏</div>
+      <div class="games-page">
+        <div class="game-container">
+          <h2>🐍 贪吃蛇</h2>
+          <div class="game-canvas-wrap"><canvas id="snake-canvas" width="300" height="300"></canvas></div>
+          <div class="game-score">
+            <span id="snake-score">得分: 0</span>
+            <span id="snake-high">最高: 0</span>
+          </div>
+          <div class="game-controls">
+            <button class="game-btn" id="snake-start">开始游戏</button>
+          </div>
+        </div>
+        <div class="game-container">
+          <h2>🧱 俄罗斯方块</h2>
+          <div class="game-canvas-wrap"><canvas id="tetris-canvas" width="300" height="300"></canvas></div>
+          <div class="game-score">
+            <span id="tetris-score">得分: 0</span>
+            <span id="tetris-high">最高: 0</span>
+          </div>
+          <div class="game-controls">
+            <button class="game-btn" id="tetris-start">开始游戏</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-content" id="page-about">
+      <div class="section-title">ℹ️ 关于我</div>
+      <div class="about-section">
+        <div class="card">
+          <p class="bio">
+            👋 Hey，欢迎来到我的小宇宙！<br><br>
+            我是一个热爱 coding 的开发者，喜欢用代码创造有趣的东西。<br>
+            这个网站是我的个人天地，分享技术、生活和音乐。<br><br>
+            📧 联系我：hello@myuniverse.dev
+          </p>
+          <div class="links">
+            <a href="#" class="social-link">📫 Email</a>
+            <a href="#" class="social-link">🌐 Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 我的小宇宙 · Made with ❤️</span>
+  </footer>
+
+  <div class="floating-deco" style="top:15%;left:5%;">🌟</div>
+  <div class="floating-deco" style="bottom:20%;right:8%;animation-delay:2s;">💤</div>
+  <div class="floating-deco" style="top:40%;right:3%;animation-delay:4s;">🌛</div>
+
+  <script src="js/games/snake.js"></script>
+  <script src="js/games/tetris.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
